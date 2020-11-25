@@ -1,5 +1,7 @@
 <template>
-  <v-app><Home></Home> </v-app>
+  <v-app>
+    <Home></Home>
+  </v-app>
 </template>
 
 <script lang="ts">
@@ -11,3 +13,14 @@ import Home from "@/views/Home.vue";
 })
 export default class App extends Vue {}
 </script>
+
+<style>
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+a {
+  text-decoration: none;
+}
+</style>
