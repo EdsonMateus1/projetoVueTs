@@ -1,11 +1,12 @@
 <template>
-  <div class="main"><h1>create</h1></div>
+  <div><h1>list</h1></div>
 </template>
 
 <script lang="ts">
 import { Component, Vue } from "vue-property-decorator";
+
 @Component
-export default class CreateTaks extends Vue {}
+export default class ListTaks extends Vue {}
 </script>
 
 <style scoped></style>
