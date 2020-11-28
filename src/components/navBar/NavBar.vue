@@ -1,31 +1,33 @@
 <template>
-  <v-card height="100%" width="256px">
-    <v-navigation-drawer class="deep-purple accent-4" dark permanent>
-      <v-list>
-        <router-link
-          class="v-list-item v-list-item--link theme--dark"
-          v-for="myComponente in myComponentes"
-          :to="myComponente.to"
-          :key="myComponente.title"
-          link
-        >
-          <v-list-item-icon>
-            <v-icon>{{ myComponente.icon }}</v-icon>
-          </v-list-item-icon>
+  <v-navigation-drawer
+    class="deep-purple accent-4 hidden-sm-and-down"
+    dark
+    permanent
+  >
+    <v-list>
+      <router-link
+        class="v-list-item v-list-item--link theme--dark"
+        v-for="myComponente in myComponentes"
+        :to="myComponente.to"
+        :key="myComponente.title"
+        link
+      >
+        <v-list-item-icon>
+          <v-icon>{{ myComponente.icon }}</v-icon>
+        </v-list-item-icon>
 
-          <v-list-item-content>
-            <v-list-item-title>{{ myComponente.title }}</v-list-item-title>
-          </v-list-item-content>
-        </router-link>
-      </v-list>
+        <v-list-item-content>
+          <v-list-item-title>{{ myComponente.title }}</v-list-item-title>
+        </v-list-item-content>
+      </router-link>
+    </v-list>
 
-      <template v-slot:append>
-        <div class="pa-2">
-          <v-btn block> Logout </v-btn>
-        </div>
-      </template>
-    </v-navigation-drawer>
-  </v-card>
+    <template v-slot:append>
+      <div class="pa-2">
+        <v-btn block> Logout </v-btn>
+      </div>
+    </template>
+  </v-navigation-drawer>
 </template>
 
 <script lang="ts">

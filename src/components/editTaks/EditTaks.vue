@@ -1,5 +1,5 @@
 <template>
-  <div><h1>Edit</h1></div>
+  <v-container><h1>Edit</h1></v-container>
 </template>
 
 <script lang="ts">

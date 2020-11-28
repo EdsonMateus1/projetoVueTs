@@ -1,10 +1,8 @@
 <template>
   <div class="home">
-    <appBar class="header">
-      <!-- -->
-    </appBar>
+    <appBar class="header"> </appBar>
     <navBar class="nav"> </navBar>
-    <!-- Sizes your content based upon application components -->
+
     <v-main class="main">
       <router-view></router-view>
     </v-main>
