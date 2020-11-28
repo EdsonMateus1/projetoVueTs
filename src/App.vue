@@ -13,7 +13,11 @@ import Home from "@/views/Home.vue";
   // Todas as opções de componentes são permitidas aqui
   components: { Home },
 })
-export default class App extends Vue {}
+export default class App extends Vue {
+  mounted() {
+    console.log(this.$firebase);
+  }
+}
 </script>
 
 <style>

@@ -1,5 +1,5 @@
 <template>
-  <v-container class="main"><h1>create</h1></v-container>
+  <v-container class="main"> </v-container>
 </template>
 
 <script lang="ts">

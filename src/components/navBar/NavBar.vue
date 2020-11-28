@@ -3,6 +3,7 @@
     class="deep-purple accent-4 hidden-sm-and-down"
     dark
     permanent
+    width="225px"
   >
     <v-list>
       <router-link
@@ -17,10 +18,11 @@
         </v-list-item-icon>
 
         <v-list-item-content>
-          <v-list-item-title>{{ myComponente.title }}</v-list-item-title>
+          <v-list-item-title> {{ myComponente.title }}</v-list-item-title>
         </v-list-item-content>
       </router-link>
     </v-list>
+    <v-divider></v-divider>
 
     <template v-slot:append>
       <div class="pa-2">

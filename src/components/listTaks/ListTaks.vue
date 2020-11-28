@@ -1,5 +1,5 @@
 <template>
-  <v-container><h1>list</h1></v-container>
+  <v-container><h1>List</h1></v-container>
 </template>
 
 <script lang="ts">
