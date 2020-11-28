@@ -1,6 +1,6 @@
 <template>
   <v-card height="100%" width="256px">
-    <v-navigation-drawer class="deep-purple accent-4 " dark permanent>
+    <v-navigation-drawer class="deep-purple accent-4" dark permanent>
       <v-list>
         <router-link
           class="v-list-item v-list-item--link theme--dark"
@@ -21,9 +21,7 @@
 
       <template v-slot:append>
         <div class="pa-2">
-          <v-btn block>
-            Logout
-          </v-btn>
+          <v-btn block> Logout </v-btn>
         </div>
       </template>
     </v-navigation-drawer>
