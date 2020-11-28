@@ -1,6 +1,6 @@
 <template>
   <div>
-    <v-app-bar color="light-blue darken-4" dark>
+    <v-app-bar color="deep-purple accent-4" dark>
       <v-toolbar-title>todo</v-toolbar-title>
     </v-app-bar>
   </div>
