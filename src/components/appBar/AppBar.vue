@@ -8,17 +8,17 @@
         </v-app-bar-nav-icon>
       </template>
       <v-list>
-        <router-link
-          class="v-list-item v-list-item--link"
+        <v-list-item
           v-for="(myComponente, index) in myComponentes"
           :key="index"
-          :to="myComponente.to"
-          style="color: #000"
         >
-          <v-list-item-content color="deep-purple">{{
-            myComponente.title
-          }}</v-list-item-content>
-        </router-link>
+          <router-link
+            class="v-list-item v-list-item--link black--text"
+            :to="myComponente.to"
+          >
+            <v-list-item-title>{{ myComponente.title }}</v-list-item-title>
+          </router-link>
+        </v-list-item>
       </v-list>
     </v-menu>
   </v-app-bar>
@@ -26,18 +26,11 @@
 
 <script lang="ts">
 import { Component, Vue } from "vue-property-decorator";
-interface ImyComponentes {
-  title: string;
-  icon: string;
-  to: string;
-}
+import myComponentes from "../../utils/myCompontesRoutes";
+
 @Component
 export default class AppBar extends Vue {
-  myComponentes: Array<ImyComponentes> = [
-    { title: "Create taks", icon: "mdi-view-dashboard", to: "/" },
-    { title: "List taks", icon: "mdi-account-box", to: "/listTaks" },
-    { title: "Edit taks", icon: "mdi-gavel", to: "/editTaks" },
-  ];
+  myComponentes = myComponentes;
 }
 </script>
 

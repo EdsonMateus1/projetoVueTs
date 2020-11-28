@@ -32,12 +32,7 @@
 
 <script lang="ts">
 import { Component, Vue } from "vue-property-decorator";
-interface ImyComponentes {
-  title: string;
-  icon: string;
-  to: string;
-}
-
+import myComponentes from "../../utils/myCompontesRoutes";
 // O decorador @Component indica que a classe é um componente Vue
 @Component({
   // Todas as opções de componentes são permitidas aqui
@@ -46,11 +41,7 @@ interface ImyComponentes {
 export default class NavBar extends Vue {
   // Dados iniciais podem ser declarados como propriedades da instância
   // message = "";
-  myComponentes: Array<ImyComponentes> = [
-    { title: "Create taks", icon: "mdi-view-dashboard", to: "/" },
-    { title: "List taks", icon: "mdi-account-box", to: "/listTaks" },
-    { title: "Edit taks", icon: "mdi-gavel", to: "/editTaks" },
-  ];
+  myComponentes = myComponentes;
   // Métodos do componente podem ser declarados como métodos da instância
   /* onClick(): void {
     window.alert(this.message);
