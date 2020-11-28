@@ -5,9 +5,9 @@ interface ImyComponentes {
 }
 
 const myComponentes: Array<ImyComponentes> = [
-    { title: "Create taks", icon: "mdi-view-dashboard", to: "/" },
-    { title: "List taks", icon: "mdi-account-box", to: "/listTaks" },
-    { title: "Edit taks", icon: "mdi-gavel", to: "/editTaks" },
+    { title: "Create taks", icon: "mdi-plus", to: "/" },
+    { title: "List taks", icon: "mdi-view-list", to: "/listTaks" },
+    { title: "Edit taks", icon: "mdi-tooltip-edit-outline", to: "/editTaks" },
 ];
 
 export default myComponentes
