@@ -36,18 +36,9 @@
 import { Component, Vue } from "vue-property-decorator";
 import myComponentes from "../../utils/myCompontesRoutes";
 // O decorador @Component indica que a classe é um componente Vue
-@Component({
-  // Todas as opções de componentes são permitidas aqui
-  //template: '<button @click="onClick">Click!</button>',
-})
+@Component({})
 export default class NavBar extends Vue {
-  // Dados iniciais podem ser declarados como propriedades da instância
-  // message = "";
-  myComponentes = myComponentes;
-  // Métodos do componente podem ser declarados como métodos da instância
-  /* onClick(): void {
-    window.alert(this.message);
-  } */
+  private myComponentes = myComponentes;
 }
 </script>
 
