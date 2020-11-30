@@ -1,6 +1,6 @@
 <template>
   <v-container>
-    <v-col align-self="center">
+    <v-row align="center">
       <v-form v-model="valid">
         <v-container>
           <v-text-field
@@ -28,7 +28,7 @@
         </v-container>
       </v-form>
       <router-link to="/home/listTaks">home </router-link>
-    </v-col>
+    </v-row>
   </v-container>
 </template>
 
