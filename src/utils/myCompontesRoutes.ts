@@ -2,7 +2,7 @@ interface ImyComponentes {
     title: string;
     icon: string;
     to: string;
-}
+};
 
 const myComponentes: Array<ImyComponentes> = [
     { title: "Create taks", icon: "mdi-plus", to: "/createTaks" },
@@ -10,4 +10,4 @@ const myComponentes: Array<ImyComponentes> = [
     { title: "Edit taks", icon: "mdi-tooltip-edit-outline", to: "/editTaks" },
 ];
 
-export default myComponentes
+export default myComponentes;
