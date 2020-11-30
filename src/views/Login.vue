@@ -1,6 +1,5 @@
 <template>
-  <v-container>
-    <v-spacer></v-spacer>
+  <v-container justify-center>
     <v-form  v-model="valid">
       <v-container >
         <v-text-field
