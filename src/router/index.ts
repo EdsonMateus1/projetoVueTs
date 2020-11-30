@@ -21,7 +21,7 @@ const routes: Array<RouteConfig> = [
       {
         path: "editTaks",
         name: "Edit Taks",
-        component: () => import("@\components\editTaks\EditTaks.vue"),
+        component: () => import("../components/editTaks/EditTaks.vue"),
       },
     ],
   },
