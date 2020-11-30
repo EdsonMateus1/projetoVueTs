@@ -1,32 +1,34 @@
 <template>
   <v-container>
-    <v-form  justify="center" align="center" v-model="valid">
-      <v-container >
-        <v-text-field
-          v-model="firstName"
-          :rules="nameRules"
-          :counter="10"
-          label="First name"
-          required
-        ></v-text-field>
+    <v-col align-self="center">
+      <v-form v-model="valid">
+        <v-container>
+          <v-text-field
+            v-model="firstName"
+            :rules="nameRules"
+            :counter="10"
+            label="First name"
+            required
+          ></v-text-field>
 
-        <v-text-field
-          v-model="lastName"
-          :rules="nameRules"
-          :counter="10"
-          label="Last name"
-          required
-        ></v-text-field>
+          <v-text-field
+            v-model="lastName"
+            :rules="nameRules"
+            :counter="10"
+            label="Last name"
+            required
+          ></v-text-field>
 
-        <v-text-field
-          v-model="email"
-          :rules="emailRules"
-          label="E-mail"
-          required
-        ></v-text-field>
-      </v-container>
-    </v-form>
-    <router-link to="/home/listTaks">home </router-link>
+          <v-text-field
+            v-model="email"
+            :rules="emailRules"
+            label="E-mail"
+            required
+          ></v-text-field>
+        </v-container>
+      </v-form>
+      <router-link to="/home/listTaks">home </router-link>
+    </v-col>
   </v-container>
 </template>
 
