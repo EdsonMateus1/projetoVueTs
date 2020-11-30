@@ -34,6 +34,7 @@
         </v-row>
       </v-container>
     </v-form>
+    <router-link to="/home">home </router-link>
   </v-container>
 </template>
 
