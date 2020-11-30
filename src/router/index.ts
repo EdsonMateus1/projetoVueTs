@@ -6,26 +6,26 @@ const routes: Array<RouteConfig> = [
   {
     path: "/home",
     name: "Home",
-    component: () => import("../views/Home.vue"),
+    component: () => import("@/views/Home.vue"),
     children: [
       {
         path: "createTaks",
         name: "Create Taks",
-        component: () => import("../components/createTaks/CreateTaks.vue"),
+        component: () => import("@/components/createTaks/CreateTaks.vue"),
       },
       {
         path: "listTaks",
         name: "List Taks",
-        component: () => import("../components/createTaks/ListTaks.vue"),
+        component: () => import("@/components/listTaks/ListTaks.vue"),
       },
       {
         path: "editTaks",
         name: "Edit Taks",
-        component: () => import("../components/createTaks/EditTaks.vue"),
+        component: () => import("@\components\editTaks\EditTaks.vue"),
       },
     ],
   },
-  { path: "/", name: "Login ", component: () => import("../views/Login.vue") },
+  { path: "/", name: "Login ", component: () => import("@/views/Login.vue") },
 ];
 
 const router = new VueRouter({
