@@ -1,5 +1,6 @@
 <template>
-  <v-container width="50%" >
+  <v-container>
+    <v-spacer></v-spacer>
     <v-form  v-model="valid">
       <v-container >
         <v-text-field
