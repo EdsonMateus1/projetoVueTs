@@ -46,12 +46,12 @@ export default class Login extends Vue {
   private firstName = "";
   private lastName = "";
   private nameRules = [
-    (v) => !!v || "Name is required",
-    (v) => v.length <= 10 || "Name must be less than 10 characters",
+    (v: any) => !!v || "Name is required",
+    (v: any) => v.length <= 10 || "Name must be less than 10 characters",
   ];
   private emailRules = [
-    (v) => !!v || "E-mail is required",
-    (v) => /.+@.+/.test(v) || "E-mail must be valid",
+    (v: any) => !!v || "E-mail is required",
+    (v: any) => /.+@.+/.test(v) || "E-mail must be valid",
   ];
 }
 </script>
