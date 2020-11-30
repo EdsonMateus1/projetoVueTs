@@ -1,6 +1,6 @@
 <template>
   <v-container>
-    <v-form  justify="center" v-model="valid">
+    <v-form  justify="center" align="center" v-model="valid">
       <v-container >
         <v-text-field
           v-model="firstName"
