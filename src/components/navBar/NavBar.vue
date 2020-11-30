@@ -26,7 +26,9 @@
 
     <template v-slot:append>
       <div class="pa-2">
-        <v-btn block> Logout </v-btn>
+        <router-link to="/">
+          <v-btn block> Logout </v-btn>
+        </router-link>
       </div>
     </template>
   </v-navigation-drawer>
