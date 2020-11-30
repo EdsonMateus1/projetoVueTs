@@ -1,7 +1,7 @@
 <template>
-  <v-container>
-    <v-form v-model="valid">
-      <v-container>
+  <v-container width="50%" >
+    <v-form  v-model="valid">
+      <v-container >
         <v-text-field
           v-model="firstName"
           :rules="nameRules"
