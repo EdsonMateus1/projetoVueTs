@@ -26,7 +26,7 @@
         ></v-text-field>
       </v-container>
     </v-form>
-    <router-link to="/home">home </router-link>
+    <router-link to="/home/listTaks">home </router-link>
   </v-container>
 </template>
 

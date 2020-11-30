@@ -9,17 +9,17 @@ const routes: Array<RouteConfig> = [
     component: () => import("@/views/Home.vue"),
     children: [
       {
-        path: "/createTaks",
+        path: "/home/createTaks",
         name: "Create Taks",
         component: () => import("@/components/createTaks/CreateTaks.vue"),
       },
       {
-        path: "/",
+        path: "/home/listTaks",
         name: "List Taks",
         component: () => import("@/components/listTaks/ListTaks.vue"),
       },
       {
-        path: "/editTaks",
+        path: "/home/editTaks",
         name: "Edit Taks",
         component: () => import("@/components/editTaks/EditTaks.vue"),
       },
