@@ -2,36 +2,28 @@
   <v-container>
     <v-form v-model="valid">
       <v-container>
-        <v-row>
-          <v-col cols="12" md="4">
-            <v-text-field
-              v-model="firstName"
-              :rules="nameRules"
-              :counter="10"
-              label="First name"
-              required
-            ></v-text-field>
-          </v-col>
+        <v-text-field
+          v-model="firstName"
+          :rules="nameRules"
+          :counter="10"
+          label="First name"
+          required
+        ></v-text-field>
 
-          <v-col cols="12" md="4">
-            <v-text-field
-              v-model="lastName"
-              :rules="nameRules"
-              :counter="10"
-              label="Last name"
-              required
-            ></v-text-field>
-          </v-col>
+        <v-text-field
+          v-model="lastName"
+          :rules="nameRules"
+          :counter="10"
+          label="Last name"
+          required
+        ></v-text-field>
 
-          <v-col cols="12" md="4">
-            <v-text-field
-              v-model="email"
-              :rules="emailRules"
-              label="E-mail"
-              required
-            ></v-text-field>
-          </v-col>
-        </v-row>
+        <v-text-field
+          v-model="email"
+          :rules="emailRules"
+          label="E-mail"
+          required
+        ></v-text-field>
       </v-container>
     </v-form>
     <router-link to="/home">home </router-link>
@@ -57,5 +49,4 @@ export default class Login extends Vue {
 }
 </script>
 
-<style scoped>
-</style>
+<style scoped></style>
