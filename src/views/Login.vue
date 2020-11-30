@@ -1,5 +1,5 @@
 <template>
-  <v-container justify-center>
+  <v-flex >
     <v-form  v-model="valid">
       <v-container >
         <v-text-field
@@ -27,7 +27,7 @@
       </v-container>
     </v-form>
     <router-link to="/home/listTaks">home </router-link>
-  </v-container>
+  </v-flex>
 </template>
 
 <script lang="ts">
