@@ -1,41 +1,38 @@
 import Vue from "vue";
 import VueRouter, { RouteConfig } from "vue-router";
-import CreateTaks from "../components/createTaks/CreateTaks.vue";
-import ListTaks from "../components/listTaks/ListTaks.vue";
-import EditTaks from "../components/editTaks/EditTaks.vue";
-import Home from "../views/Home.vue"
-import Login from "../views/Login.vue"
+import Home from "../views/Home.vue";
 
 Vue.use(VueRouter);
 
 const routes: Array<RouteConfig> = [
   {
-    path: "/home", component: Home,
+    path: "/home",
+    component: Home,
     children: [
       {
         path: "/createTaks",
         name: "Create Taks",
-        component: CreateTaks
+        component: () => import("../components/createTaks/CreateTaks.vue"),
       },
       {
         path: "/listTaks",
         name: "List Taks",
-        component: ListTaks
+        component: () => import("../components/createTaks/ListTaks.vue"),
       },
       {
         path: "/editTaks",
         name: "Edit Taks",
-        component: EditTaks
+        component: () => import("../components/createTaks/EditTaks.vue"),
       },
-    ]
+    ],
   },
-  { path: "/", component: Login }
+  { path: "/", name: "Login ", component: () => import("../views/Login.vue") },
 ];
 
 const router = new VueRouter({
   mode: "history",
   base: process.env.BASE_URL,
-  routes
+  routes,
 });
 
 export default router;
