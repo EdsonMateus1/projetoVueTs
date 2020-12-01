@@ -36,7 +36,7 @@
 
             <v-text-field
               v-model="confirmePassword"
-              :rules="confirmePassword"
+              :rules="confirmePasswordRules"
               label="Confirme password"
               required
             ></v-text-field>
