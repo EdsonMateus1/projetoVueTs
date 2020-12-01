@@ -1,9 +1,9 @@
 <template>
-  <v-container>
-    <v-row align="center">
-      <v-col >
+  <v-container fluid height="100%">
+    <v-row align="center" height="100%">
+      <v-col>
         <v-form v-model="valid">
-          <v-container>
+          <v-container white="50%">
             <v-text-field
               v-model="firstName"
               :rules="nameRules"
@@ -53,4 +53,7 @@ export default class Login extends Vue {
 }
 </script>
 
-<style scoped></style>
+<style lang="sass" scoped>
+
+
+</style>
