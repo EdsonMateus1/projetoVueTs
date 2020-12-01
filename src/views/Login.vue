@@ -1,7 +1,7 @@
 <template>
   <v-container>
-    <v-row>
-      <v-col align="center">
+    <v-row align="center">
+      <v-col >
         <v-form v-model="valid">
           <v-container>
             <v-text-field
