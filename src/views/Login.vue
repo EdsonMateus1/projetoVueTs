@@ -26,10 +26,18 @@
               label="E-mail"
               required
             ></v-text-field>
+
             <v-text-field
               v-model="password"
               :rules="passwordRules"
               label="Password"
+              required
+            ></v-text-field>
+
+            <v-text-field
+              v-model="confirmePassword"
+              :rules="confirmePassword"
+              label="Confirme password"
               required
             ></v-text-field>
           </v-container>
@@ -49,8 +57,13 @@ export default class Login extends Vue {
   private firstName = "";
   private lastName = "";
   private password = "";
+  private confirmePassword = "";
+  private confirmePasswordRules = [
+    (v: any) => !!v || "password comfirme is required",
+    (v: any) => v.length <= 10 || "Name must be less than 10 characters",
+  ];
   private passwordRules = [
-    (v: any) => !!v || "Name is required",
+    (v: any) => !!v || "password is required",
     (v: any) => v.length <= 10 || "Name must be less than 10 characters",
   ];
   private nameRules = [
