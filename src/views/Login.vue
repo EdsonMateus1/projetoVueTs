@@ -1,9 +1,9 @@
 <template>
-  <v-container fluid height="100%">
-    <v-row align="center" height="100%">
+  <v-container>
+    <v-row align="center">
       <v-col>
         <v-form v-model="valid">
-          <v-container white="50%">
+          <v-container>
             <v-text-field
               v-model="firstName"
               :rules="nameRules"
@@ -26,6 +26,12 @@
               label="E-mail"
               required
             ></v-text-field>
+            <v-text-field
+              v-model="password"
+              :rules="passwordRules"
+              label="Password"
+              required
+            ></v-text-field>
           </v-container>
         </v-form>
       </v-col>
@@ -42,6 +48,11 @@ export default class Login extends Vue {
   private valid = false;
   private firstName = "";
   private lastName = "";
+  private password = "";
+  private passwordRules = [
+    (v: any) => !!v || "Name is required",
+    (v: any) => v.length <= 10 || "Name must be less than 10 characters",
+  ];
   private nameRules = [
     (v: any) => !!v || "Name is required",
     (v: any) => v.length <= 10 || "Name must be less than 10 characters",
@@ -53,7 +64,4 @@ export default class Login extends Vue {
 }
 </script>
 
-<style lang="sass" scoped>
-
-
-</style>
+<style lang="sass" scoped></style>
