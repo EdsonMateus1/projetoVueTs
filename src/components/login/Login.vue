@@ -1,50 +1,26 @@
 <template>
   <v-container>
-    <v-row align="center">
-      <v-col>
-        <v-form v-model="valid">
-          <v-container>
-            <v-text-field
-              v-model="firstName"
-              :rules="nameRules"
-              :counter="10"
-              label="First name"
-              required
-            ></v-text-field>
-
-            <v-text-field
-              v-model="lastName"
-              :rules="nameRules"
-              :counter="10"
-              label="Last name"
-              required
-            ></v-text-field>
-
-            <v-text-field
-              v-model="email"
-              :rules="emailRules"
-              label="E-mail"
-              required
-            ></v-text-field>
-
-            <v-text-field
-              v-model="password"
-              :rules="passwordRules"
-              label="Password"
-              required
-            ></v-text-field>
-
-            <v-text-field
-              v-model="confirmePassword"
-              :rules="confirmePasswordRules"
-              label="Confirme password"
-              required
-            ></v-text-field>
-          </v-container>
-        </v-form>
-      </v-col>
-    </v-row>
-    <router-link to="/home/listTaks">home </router-link>
+    <v-text-field
+      v-model="firstName"
+      :rules="nameRules"
+      :counter="10"
+      label="First name"
+      required
+    ></v-text-field>
+    <v-spacer></v-spacer>
+    <v-text-field
+      v-model="email"
+      :rules="emailRules"
+      label="E-mail"
+      required
+    ></v-text-field>
+    <v-spacer></v-spacer>
+    <v-text-field
+      v-model="password"
+      :rules="passwordRules"
+      label="Password"
+      required
+    ></v-text-field>
   </v-container>
 </template>
 
@@ -55,13 +31,8 @@ import { Component, Vue } from "vue-property-decorator";
 export default class Login extends Vue {
   private valid = false;
   private firstName = "";
-  private lastName = "";
   private password = "";
-  private confirmePassword = "";
-  private confirmePasswordRules = [
-    (v: any) => !!v || "password comfirme is required",
-    (v: any) => v.length <= 10 || "Name must be less than 10 characters",
-  ];
+
   private passwordRules = [
     (v: any) => !!v || "password is required",
     (v: any) => v.length <= 10 || "Name must be less than 10 characters",
@@ -77,4 +48,5 @@ export default class Login extends Vue {
 }
 </script>
 
-<style lang="sass" scoped></style>
+<style lang="scss" scoped>
+</style>

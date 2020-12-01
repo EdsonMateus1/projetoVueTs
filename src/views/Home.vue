@@ -15,12 +15,12 @@ import appBar from "@/components/appBar/AppBar.vue";
 import navBar from "@/components/navBar/NavBar.vue";
 
 @Component({
-  components: { appBar, navBar }
+  components: { appBar, navBar },
 })
 export default class Home extends Vue {}
 </script>
 
-<style scope>
+<style scope lang="scss">
 .home {
   width: 100%;
   height: 100%;

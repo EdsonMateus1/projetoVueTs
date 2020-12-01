@@ -16,16 +16,21 @@ import Home from "@/views/Home.vue";
 export default class App extends Vue {}
 </script>
 
-<style>
+<style lang="scss">
 * {
   padding: 0;
   margin: 0;
   box-sizing: border-box;
 }
+
 a {
   text-decoration: none;
 }
+
 .borderZero {
   border-radius: 0px;
+}
+.height100 {
+  height: 100vh;
 }
 </style>
