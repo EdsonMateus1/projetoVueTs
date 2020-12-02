@@ -1,41 +1,49 @@
 <template>
   <v-container>
-    <v-text-field
-      v-model="firstName"
-      :rules="nameRules"
-      :counter="10"
-      label="First name"
-      required
-    ></v-text-field>
-    <v-spacer></v-spacer>
-    <v-text-field
-      v-model="email"
-      :rules="emailRules"
-      label="E-mail"
-      required
-    ></v-text-field>
-    <v-spacer></v-spacer>
-    <v-text-field
-      v-model="password"
-      :rules="passwordRules"
-      label="Password"
-      required
-    ></v-text-field>
+    <v-form v-model="valid">
+      <v-text-field
+        class="margin"
+        v-model="firstName"
+        :rules="nameRules"
+        :counter="10"
+        label="First name"
+        required
+      ></v-text-field>
+
+      <v-text-field
+        v-model="email"
+        :rules="emailRules"
+        label="E-mail"
+        required
+      ></v-text-field>
+
+      <v-text-field
+        v-model="password"
+        :rules="passwordRules"
+        label="Password"
+        required
+      ></v-text-field>
+      <Button title="log in"></Button>
+    </v-form>
   </v-container>
 </template>
 
 <script lang="ts">
 import { Component, Vue } from "vue-property-decorator";
+import Button from "@/components/shared/button/Button.vue";
 
-@Component
+@Component({
+  components: { Button },
+})
 export default class Login extends Vue {
   private valid = false;
   private firstName = "";
+  private email = "";
   private password = "";
 
   private passwordRules = [
     (v: any) => !!v || "password is required",
-    (v: any) => v.length <= 10 || "Name must be less than 10 characters",
+    //(v: any) => v.length <= 10 || "Name must be less than 10 characters",
   ];
   private nameRules = [
     (v: any) => !!v || "Name is required",
@@ -49,4 +57,7 @@ export default class Login extends Vue {
 </script>
 
 <style lang="scss" scoped>
+.margin {
+  margin: 30px 0px;
+}
 </style>

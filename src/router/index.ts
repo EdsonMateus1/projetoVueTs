@@ -5,18 +5,17 @@ Vue.use(VueRouter);
 const routes: Array<RouteConfig> = [
   {
     path: "/home",
-    name: "Home",
     component: () => import("@/views/Home.vue"),
     children: [
+      {
+        path: "",
+        name: "Home",
+        component: () => import("@/components/listTaks/ListTaks.vue"),
+      },
       {
         path: "/home/createTaks",
         name: "Create Taks",
         component: () => import("@/components/createTaks/CreateTaks.vue"),
-      },
-      {
-        path: "/home/listTaks",
-        name: "List Taks",
-        component: () => import("@/components/listTaks/ListTaks.vue"),
       },
       {
         path: "/home/editTaks",
@@ -27,17 +26,16 @@ const routes: Array<RouteConfig> = [
   },
   {
     path: "/",
-    name: "Login Page",
     component: () => import("@/views/LoginPage.vue"),
     children: [
       {
-        path: "/",
+        path: "",
         name: "Login",
         component: () => import("@/components/login/Login.vue"),
       },
       {
         path: "/sign",
-        name: "Sign",
+        name: "sign",
         component: () => import("@/components/sign/Sign.vue"),
       },
     ],
