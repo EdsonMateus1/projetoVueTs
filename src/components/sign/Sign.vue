@@ -37,7 +37,7 @@
         label="Confirme password"
         required
       ></v-text-field>
-      <Button title="Sig in"></Button>
+      <Button :validProps="valid" title="Sign in"></Button>
     </v-form>
   </v-container>
 </template>
@@ -46,7 +46,7 @@
 import { Component, Vue } from "vue-property-decorator";
 import Button from "@/components/shared/button/Button.vue";
 @Component({
-  components: { Button },
+  components: { Button }
 })
 export default class Sign extends Vue {
   private valid = false;
@@ -57,22 +57,21 @@ export default class Sign extends Vue {
   private confirmePassword = "";
   private confirmePasswordRules = [
     (v: any) => !!v || "password comfirme is required",
-    (v: any) => v.length <= 10 || "Name must be less than 10 characters",
+    (v: any) => v.length <= 10 || "Name must be less than 10 characters"
   ];
   private passwordRules = [
     (v: any) => !!v || "password is required",
-    (v: any) => v.length <= 10 || "Name must be less than 10 characters",
+    (v: any) => v.length <= 10 || "Name must be less than 10 characters"
   ];
   private nameRules = [
     (v: any) => !!v || "Name is required",
-    (v: any) => v.length <= 10 || "Name must be less than 10 characters",
+    (v: any) => v.length <= 10 || "Name must be less than 10 characters"
   ];
   private emailRules = [
     (v: any) => !!v || "E-mail is required",
-    (v: any) => /.+@.+/.test(v) || "E-mail must be valid",
+    (v: any) => /.+@.+/.test(v) || "E-mail must be valid"
   ];
 }
 </script>
 
-<style lang="scss" scoped>
-</style>
+<style lang="scss" scoped></style>

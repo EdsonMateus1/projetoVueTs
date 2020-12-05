@@ -23,7 +23,7 @@
         label="Password"
         required
       ></v-text-field>
-      <Button title="log in"></Button>
+      <Button :validProps="valid" title="log in"></Button>
     </v-form>
   </v-container>
 </template>
@@ -33,7 +33,7 @@ import { Component, Vue } from "vue-property-decorator";
 import Button from "@/components/shared/button/Button.vue";
 
 @Component({
-  components: { Button },
+  components: { Button }
 })
 export default class Login extends Vue {
   private valid = false;
@@ -42,16 +42,16 @@ export default class Login extends Vue {
   private password = "";
 
   private passwordRules = [
-    (v: any) => !!v || "password is required",
+    (v: any) => !!v || "password is required"
     //(v: any) => v.length <= 10 || "Name must be less than 10 characters",
   ];
   private nameRules = [
     (v: any) => !!v || "Name is required",
-    (v: any) => v.length <= 10 || "Name must be less than 10 characters",
+    (v: any) => v.length <= 10 || "Name must be less than 10 characters"
   ];
   private emailRules = [
     (v: any) => !!v || "E-mail is required",
-    (v: any) => /.+@.+/.test(v) || "E-mail must be valid",
+    (v: any) => /.+@.+/.test(v) || "E-mail must be valid"
   ];
 }
 </script>
