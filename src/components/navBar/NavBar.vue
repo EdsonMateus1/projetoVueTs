@@ -40,7 +40,7 @@ import myComponentes from "../../utils/myCompontesRoutes";
 // O decorador @Component indica que a classe é um componente Vue
 @Component({})
 export default class NavBar extends Vue {
-  private myComponentes = myComponentes;
+  private readonly myComponentes = myComponentes;
 }
 </script>
 

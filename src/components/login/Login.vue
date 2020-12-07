@@ -8,20 +8,25 @@
         :counter="10"
         label="First name"
         required
+        type="text"
       ></v-text-field>
 
       <v-text-field
+        class="margin"
         v-model="email"
         :rules="emailRules"
         label="E-mail"
         required
+        type="email"
       ></v-text-field>
 
       <v-text-field
+        class="margin"
         v-model="password"
         :rules="passwordRules"
         label="Password"
         required
+        type="password"
       ></v-text-field>
       <Button :validProps="valid" title="log in"></Button>
     </v-form>
@@ -33,7 +38,7 @@ import { Component, Vue } from "vue-property-decorator";
 import Button from "@/components/shared/button/Button.vue";
 
 @Component({
-  components: { Button }
+  components: { Button },
 })
 export default class Login extends Vue {
   private valid = false;
@@ -42,22 +47,22 @@ export default class Login extends Vue {
   private password = "";
 
   private passwordRules = [
-    (v: any) => !!v || "password is required"
+    (v: any) => !!v || "password is required",
     //(v: any) => v.length <= 10 || "Name must be less than 10 characters",
   ];
   private nameRules = [
     (v: any) => !!v || "Name is required",
-    (v: any) => v.length <= 10 || "Name must be less than 10 characters"
+    (v: any) => v.length <= 10 || "Name must be less than 10 characters",
   ];
   private emailRules = [
     (v: any) => !!v || "E-mail is required",
-    (v: any) => /.+@.+/.test(v) || "E-mail must be valid"
+    (v: any) => /.+@.+/.test(v) || "E-mail must be valid",
   ];
 }
 </script>
 
 <style lang="scss" scoped>
 .margin {
-  margin: 30px 0px;
+  margin: 20px 0px;
 }
 </style>

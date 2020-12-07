@@ -30,7 +30,7 @@ import myComponentes from "../../utils/myCompontesRoutes";
 
 @Component
 export default class AppBar extends Vue {
-  private myComponentes = myComponentes;
+  private readonly myComponentes = myComponentes;
 }
 </script>
 

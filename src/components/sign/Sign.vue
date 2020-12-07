@@ -7,6 +7,7 @@
         :counter="10"
         label="First name"
         required
+        type="text"
       ></v-text-field>
 
       <v-text-field
@@ -15,6 +16,7 @@
         :counter="10"
         label="Last name"
         required
+        type="text"
       ></v-text-field>
 
       <v-text-field
@@ -22,6 +24,7 @@
         :rules="emailRules"
         label="E-mail"
         required
+        type="email"
       ></v-text-field>
 
       <v-text-field
@@ -29,6 +32,7 @@
         :rules="passwordRules"
         label="Password"
         required
+        type="password"
       ></v-text-field>
 
       <v-text-field
@@ -36,6 +40,7 @@
         :rules="confirmePasswordRules"
         label="Confirme password"
         required
+        type="password"
       ></v-text-field>
       <Button :validProps="valid" title="Sign in"></Button>
     </v-form>
@@ -46,7 +51,7 @@
 import { Component, Vue } from "vue-property-decorator";
 import Button from "@/components/shared/button/Button.vue";
 @Component({
-  components: { Button }
+  components: { Button },
 })
 export default class Sign extends Vue {
   private valid = false;
@@ -57,19 +62,19 @@ export default class Sign extends Vue {
   private confirmePassword = "";
   private confirmePasswordRules = [
     (v: any) => !!v || "password comfirme is required",
-    (v: any) => v.length <= 10 || "Name must be less than 10 characters"
+    (v: any) => v.length <= 10 || "Name must be less than 10 characters",
   ];
   private passwordRules = [
     (v: any) => !!v || "password is required",
-    (v: any) => v.length <= 10 || "Name must be less than 10 characters"
+    (v: any) => v.length <= 10 || "Name must be less than 10 characters",
   ];
   private nameRules = [
     (v: any) => !!v || "Name is required",
-    (v: any) => v.length <= 10 || "Name must be less than 10 characters"
+    (v: any) => v.length <= 10 || "Name must be less than 10 characters",
   ];
   private emailRules = [
     (v: any) => !!v || "E-mail is required",
-    (v: any) => /.+@.+/.test(v) || "E-mail must be valid"
+    (v: any) => /.+@.+/.test(v) || "E-mail must be valid",
   ];
 }
 </script>

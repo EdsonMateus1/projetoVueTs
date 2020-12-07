@@ -6,7 +6,7 @@
     <v-container class="height100">
       <v-row style="height: 100%" align="center" justify="center">
         <v-col class="width-resposive" justify="center" align="center">
-          <v-tabs class="width-resposive tabs-margin">
+          <v-tabs class="width-resposive tabs-margin border-radius">
             <router-link class="v-tab" to="/">Log in</router-link>
             <router-link class="v-tab" to="/sign">Sign up</router-link>
           </v-tabs>
@@ -32,6 +32,9 @@ export default class LoginPage extends Vue {}
 }
 .tabs-margin {
   margin-bottom: 5px;
+}
+.border-radius{
+   border-radius: 4px;
 }
 @media screen and (min-width: 800px) {
   .width-resposive {
