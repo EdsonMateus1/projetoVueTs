@@ -1,6 +1,6 @@
 <template>
   <v-container>
-    <v-form v-model="valid">
+    <v-form @submit.prevent="createUser" v-model="valid">
       <v-text-field
         v-model="firstName"
         :rules="nameRules"
@@ -62,12 +62,8 @@ export default class Sign extends Vue {
   private confirmePassword = "";
   private confirmePasswordRules = [
     (v: any) => !!v || "password comfirme is required",
-    (v: any) => v.length <= 10 || "Name must be less than 10 characters",
   ];
-  private passwordRules = [
-    (v: any) => !!v || "password is required",
-    (v: any) => v.length <= 10 || "Name must be less than 10 characters",
-  ];
+  private passwordRules = [(v: any) => !!v || "password is required"];
   private nameRules = [
     (v: any) => !!v || "Name is required",
     (v: any) => v.length <= 10 || "Name must be less than 10 characters",
@@ -76,6 +72,17 @@ export default class Sign extends Vue {
     (v: any) => !!v || "E-mail is required",
     (v: any) => /.+@.+/.test(v) || "E-mail must be valid",
   ];
+
+  async createUser() {
+    try {
+      const res = await this.$firebase
+        .auth()
+        .createUserWithEmailAndPassword(this.email, this.password);
+      console.log(res);
+    } catch (error) {
+      console.log(error);
+    }
+  }
 }
 </script>
 
