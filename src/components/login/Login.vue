@@ -35,10 +35,7 @@ export default class Login extends Vue {
   private email = "";
   private password = "";
 
-  private passwordRules = [
-    (v: any) => !!v || "password is required",
-    //(v: any) => !!v || "password is required",
-  ];
+  private passwordRules = [(v: any) => !!v || "password is required"];
 
   private emailRules = [
     (v: any) => !!v || "E-mail is required",

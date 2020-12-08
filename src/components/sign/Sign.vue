@@ -54,19 +54,19 @@ import Button from "@/components/shared/button/Button.vue";
   components: { Button },
 })
 export default class Sign extends Vue {
+  //Declared propriedade data
   private valid = false;
   private firstName = "";
   private lastName = "";
   private password = "";
   private email = "";
   private confirmePassword = "";
-  private confirmePasswordRules = [
-    (v: any) => !!v || "password comfirme is required",
-    //(v: any) => !!v || "password comfirme is required",
-  ];
+
   private passwordRules = [
     (v: any) => !!v || "password is required",
-    //(v: any) => !!v || "password comfirme is required",
+    (v: any) =>
+      /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z\d]{8,}$/.test(v) ||
+      "the password must be at least eight characters long, with at least one uppercase letter, one lowercase letter and a number",
   ];
   private nameRules = [
     (v: any) => !!v || "Name is required",
@@ -77,6 +77,16 @@ export default class Sign extends Vue {
     (v: any) => /.+@.+/.test(v) || "E-mail must be valid",
   ];
 
+  // Declared as computed property getter
+  get confirmePasswordRules() {
+    const confirmePasswordRules = [
+      (v: any) => !!v || "password comfirme is required",
+      (v: any) => v === this.password || "passwords must be the same",
+    ];
+    return confirmePasswordRules;
+  }
+
+  // Declared metodos
   async createUser() {
     try {
       const res = await this.$firebase
