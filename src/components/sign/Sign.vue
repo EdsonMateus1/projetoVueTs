@@ -62,8 +62,12 @@ export default class Sign extends Vue {
   private confirmePassword = "";
   private confirmePasswordRules = [
     (v: any) => !!v || "password comfirme is required",
+    //(v: any) => !!v || "password comfirme is required",
   ];
-  private passwordRules = [(v: any) => !!v || "password is required"];
+  private passwordRules = [
+    (v: any) => !!v || "password is required",
+    //(v: any) => !!v || "password comfirme is required",
+  ];
   private nameRules = [
     (v: any) => !!v || "Name is required",
     (v: any) => v.length <= 10 || "Name must be less than 10 characters",
