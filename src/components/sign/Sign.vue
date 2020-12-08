@@ -54,7 +54,6 @@ import Button from "@/components/shared/button/Button.vue";
   components: { Button },
 })
 export default class Sign extends Vue {
-  //Declared propriedade data
   private valid = false;
   private firstName = "";
   private lastName = "";
