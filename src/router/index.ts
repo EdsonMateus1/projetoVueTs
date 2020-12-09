@@ -25,7 +25,7 @@ const routes: Array<RouteConfig> = [
     ]
   },
   {
-    path: "/",
+    path: "/login",
     component: () => import("@/views/LoginPage.vue"),
     children: [
       {
@@ -35,7 +35,7 @@ const routes: Array<RouteConfig> = [
       },
       {
         path: "/sign",
-        name: "sign",
+        name: "Sign",
         component: () => import("@/components/sign/Sign.vue")
       }
     ]

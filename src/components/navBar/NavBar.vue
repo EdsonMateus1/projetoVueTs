@@ -26,9 +26,7 @@
 
     <template v-slot:append>
       <div class="pa-2">
-        <router-link to="/">
-          <v-btn block> Logout </v-btn>
-        </router-link>
+        <v-btn @click="logout" block> Logout </v-btn>
       </div>
     </template>
   </v-navigation-drawer>
@@ -41,6 +39,15 @@ import myComponentes from "../../utils/myCompontesRoutes";
 @Component({})
 export default class NavBar extends Vue {
   private readonly myComponentes = myComponentes;
+  async logout() {
+    try {
+      await this.$firebase.auth().signOut();
+      localStorage.removeItem("toke-login");
+      this.$router.push({ name: "Login" });
+    } catch (error) {
+      console.log(error);
+    }
+  }
 }
 </script>
 

@@ -36,7 +36,6 @@ export default class Login extends Vue {
   private password = "";
 
   private passwordRules = [(v: any) => !!v || "password is required"];
-
   private emailRules = [
     (v: any) => !!v || "E-mail is required",
     (v: any) => /.+@.+/.test(v) || "E-mail must be valid",
@@ -47,7 +46,9 @@ export default class Login extends Vue {
       const res = await this.$firebase
         .auth()
         .signInWithEmailAndPassword(this.email, this.password);
-      console.log(res);
+      const id = res.user?.uid;
+      localStorage.setItem("toke-login", id || "");
+      this.$router.push({ name: "Home" });
     } catch (error) {
       console.log(error);
     }
