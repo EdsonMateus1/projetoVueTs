@@ -23,7 +23,7 @@ export default class Home extends Vue {
       await this.$firebase.auth().onAuthStateChanged((user) => {
         const id = user?.uid || null;
         if (!id) {
-          this.$router.push("/");
+          this.$router.push({ name: "Login" });
         }
       });
     } catch (error) {

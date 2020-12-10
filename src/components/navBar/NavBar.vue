@@ -43,7 +43,6 @@ export default class NavBar extends Vue {
     try {
       await this.$firebase.auth().signOut();
       localStorage.removeItem("toke-login");
-      this.$router.push({ name: "Login" });
     } catch (error) {
       console.log(error);
     }

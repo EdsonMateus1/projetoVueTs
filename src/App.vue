@@ -13,11 +13,7 @@ import Home from "@/views/Home.vue";
   // Todas as opções de componentes são permitidas aqui
   components: { Home },
 })
-export default class App extends Vue {
-  mounted() {
-    this.$router.push({ name: "Login" });
-  }
-}
+export default class App extends Vue {}
 </script>
 
 <style lang="scss">

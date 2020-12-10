@@ -91,7 +91,9 @@ export default class Sign extends Vue {
       const res = await this.$firebase
         .auth()
         .createUserWithEmailAndPassword(this.email, this.password);
-      console.log(res);
+      const id = res.user?.uid;
+      localStorage.setItem("toke-login", id || "");
+      this.$router.push({ name: "Home" });
     } catch (error) {
       console.log(error);
     }

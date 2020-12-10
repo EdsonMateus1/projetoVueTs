@@ -18,7 +18,14 @@
         required
         type="password"
       ></v-text-field>
-      <Button :validProps="valid" title="log in"></Button>
+      <v-progress-linear
+        v-if="progress"
+        color="deep-purple accent-4"
+        indeterminate
+        rounded
+        height="6"
+      ></v-progress-linear>
+      <Button v-else :validProps="valid" title="log in"></Button>
     </v-form>
   </v-container>
 </template>
@@ -34,7 +41,7 @@ export default class Login extends Vue {
   private valid = false;
   private email = "";
   private password = "";
-
+  private progress = false;
   private passwordRules = [(v: any) => !!v || "password is required"];
   private emailRules = [
     (v: any) => !!v || "E-mail is required",
@@ -43,6 +50,7 @@ export default class Login extends Vue {
 
   async doLogin() {
     try {
+      this.progress = true;
       const res = await this.$firebase
         .auth()
         .signInWithEmailAndPassword(this.email, this.password);

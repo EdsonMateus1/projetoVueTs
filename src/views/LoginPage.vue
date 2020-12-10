@@ -7,8 +7,12 @@
       <v-row style="height: 100%" align="center" justify="center">
         <v-col class="width-resposive" justify="center" align="center">
           <v-tabs class="width-resposive tabs-margin border-radius">
-            <router-link class="v-tab" to="/login">Log in</router-link>
-            <router-link class="v-tab" to="/sign">Sign up</router-link>
+            <router-link class="v-tab" :to="{ name: 'Login' }"
+              >Log in</router-link
+            >
+            <router-link class="v-tab" :to="{ name: 'Sign' }"
+              >Sign up</router-link
+            >
           </v-tabs>
           <v-card class="width-resposive">
             <router-view></router-view>
