@@ -64,6 +64,8 @@ export default class Login extends Vue {
     const id = localStorage.getItem("toke-login");
     if (id) {
       this.$router.push({ name: "Home" });
+    } else {
+      return;
     }
   }
   mounted() {

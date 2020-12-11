@@ -25,16 +25,16 @@
     <v-divider></v-divider>
 
     <template v-slot:append>
-      <v-progress-linear
-        class="progress"
-        v-if="progress"
-        color="black"
-        indeterminate
-        rounded
-        height="6"
-      ></v-progress-linear>
-      <div v-else class="pa-2">
-        <v-btn @click="logout" block> Logout </v-btn>
+      <div class="pa-2">
+        <v-progress-linear
+          class="progress"
+          v-if="progress"
+          color="black"
+          indeterminate
+          rounded
+          height="36"
+        ></v-progress-linear>
+        <v-btn v-else @click="logout" block> Logout </v-btn>
       </div>
     </template>
   </v-navigation-drawer>

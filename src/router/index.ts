@@ -53,7 +53,7 @@ const router = new VueRouter({
 //type guards global
 router.beforeEach((to, from, next) => {
   const id = localStorage.getItem("toke-login") || null
-  if (!id && to.name != "Login") {
+  if (!id && (to.name != "Login" && to.name != "Sign")) {
     next({ name: "Login" })
   } else {
     next()
