@@ -33,7 +33,7 @@
 <script lang="ts">
 import { Component, Vue } from "vue-property-decorator";
 import Button from "@/components/shared/button/Button.vue";
-
+import VueRouter, { Route } from "vue-router";
 @Component({
   components: { Button },
 })
@@ -47,19 +47,27 @@ export default class Login extends Vue {
     (v: any) => !!v || "E-mail is required",
     (v: any) => /.+@.+/.test(v) || "E-mail must be valid",
   ];
-
   async doLogin() {
     try {
       this.progress = true;
       const res = await this.$firebase
         .auth()
         .signInWithEmailAndPassword(this.email, this.password);
-      const id = res.user?.uid;
-      localStorage.setItem("toke-login", id || "");
+      const id = res.user!.uid;
+      localStorage.setItem("toke-login", id);
       this.$router.push({ name: "Home" });
     } catch (error) {
       console.log(error);
     }
+  }
+  redirectLoggedIn() {
+    const id = localStorage.getItem("toke-login");
+    if (id) {
+      this.$router.push({ name: "Home" });
+    }
+  }
+  mounted() {
+    this.redirectLoggedIn();
   }
 }
 </script>

@@ -25,7 +25,7 @@ const routes: Array<RouteConfig> = [
     ]
   },
   {
-    path: "/login",
+    path: "/",
     component: () => import("@/views/LoginPage.vue"),
     children: [
       {
@@ -42,10 +42,22 @@ const routes: Array<RouteConfig> = [
   }
 ];
 
+
+
 const router = new VueRouter({
   mode: "history",
   base: process.env.BASE_URL,
   routes
 });
+
+//type guards global
+router.beforeEach((to, from, next) => {
+  const id = localStorage.getItem("toke-login") || null
+  if (!id && to.name != "Login") {
+    next({ name: "Login" })
+  } else {
+    next()
+  }
+})
 
 export default router;

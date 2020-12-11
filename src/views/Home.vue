@@ -17,23 +17,7 @@ import navBar from "@/components/navBar/NavBar.vue";
 @Component({
   components: { appBar, navBar },
 })
-export default class Home extends Vue {
-  async redirectNotLogged() {
-    try {
-      await this.$firebase.auth().onAuthStateChanged((user) => {
-        const id = user?.uid || null;
-        if (!id) {
-          this.$router.push({ name: "Login" });
-        }
-      });
-    } catch (error) {
-      console.log(error);
-    }
-  }
-  mounted() {
-    this.redirectNotLogged();
-  }
-}
+export default class Home extends Vue {}
 </script>
 
 <style scope lang="scss">

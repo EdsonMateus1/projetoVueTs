@@ -25,7 +25,15 @@
     <v-divider></v-divider>
 
     <template v-slot:append>
-      <div class="pa-2">
+      <v-progress-linear
+        class="progress"
+        v-if="progress"
+        color="black"
+        indeterminate
+        rounded
+        height="6"
+      ></v-progress-linear>
+      <div v-else class="pa-2">
         <v-btn @click="logout" block> Logout </v-btn>
       </div>
     </template>
@@ -39,10 +47,13 @@ import myComponentes from "../../utils/myCompontesRoutes";
 @Component({})
 export default class NavBar extends Vue {
   private readonly myComponentes = myComponentes;
+  private progress = false;
   async logout() {
     try {
+      this.progress = true;
       await this.$firebase.auth().signOut();
       localStorage.removeItem("toke-login");
+      this.$router.push({ name: "Login" });
     } catch (error) {
       console.log(error);
     }
@@ -53,5 +64,8 @@ export default class NavBar extends Vue {
 <style scoped>
 .borderZero {
   border-radius: 0px;
+}
+.progress {
+  margin-bottom: 20px;
 }
 </style>
