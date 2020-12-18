@@ -35,7 +35,7 @@ import { Component, Vue } from "vue-property-decorator";
 import Button from "@/components/shared/button/Button.vue";
 import VueRouter, { Route } from "vue-router";
 @Component({
-  components: { Button },
+  components: { Button }
 })
 export default class Login extends Vue {
   private valid = false;
@@ -45,7 +45,7 @@ export default class Login extends Vue {
   private passwordRules = [(v: any) => !!v || "password is required"];
   private emailRules = [
     (v: any) => !!v || "E-mail is required",
-    (v: any) => /.+@.+/.test(v) || "E-mail must be valid",
+    (v: any) => /.+@.+/.test(v) || "E-mail must be valid"
   ];
   async doLogin() {
     try {

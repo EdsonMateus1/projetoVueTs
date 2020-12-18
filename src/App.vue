@@ -11,7 +11,7 @@ import Home from "@/views/Home.vue";
 // O decorador @Component indica que a classe é um componente Vue
 @Component({
   // Todas as opções de componentes são permitidas aqui
-  components: { Home },
+  components: { Home }
 })
 export default class App extends Vue {}
 </script>

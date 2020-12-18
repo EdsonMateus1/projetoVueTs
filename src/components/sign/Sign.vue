@@ -50,6 +50,7 @@
 <script lang="ts">
 import { Component, Vue } from "vue-property-decorator";
 import Button from "@/components/shared/button/Button.vue";
+import { ToManageDataBase } from "@/firebase/ToManageDataBase";
 @Component({
   components: { Button },
 })
@@ -84,12 +85,12 @@ export default class Sign extends Vue {
     ];
     return confirmePasswordRules;
   }
-  async saveName() {
-    const id = localStorage.getItem("toke-login");
-    await this.$firebase.database().ref(`user_id_${id}`).set({
+  saveName() {
+    const ref = new ToManageDataBase({
       nome: this.firstName,
       sobrenome: this.lastName,
     });
+    ref.setDataBase();
   }
   // Declared metodos
   async createUser() {

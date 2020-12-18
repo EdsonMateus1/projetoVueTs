@@ -1,6 +1,6 @@
 <template>
   <v-app-bar color="deep-purple accent-4" dark>
-    <v-toolbar-title>Todo organizando suas tarefas</v-toolbar-title>
+    <v-toolbar-title>Bem-vindo {{ nameFormat }} </v-toolbar-title>
     <v-spacer></v-spacer>
     <v-menu>
       <template v-slot:activator="{ on, attrs }">
@@ -27,10 +27,29 @@
 <script lang="ts">
 import { Component, Vue } from "vue-property-decorator";
 import myComponentes from "../../utils/myCompontesRoutes";
+import { ToManageDataBase, UserData } from "@/firebase/ToManageDataBase";
 
 @Component
 export default class AppBar extends Vue {
   private readonly myComponentes = myComponentes;
+  private name = "";
+
+  async getName() {
+    const dataBase = new ToManageDataBase();
+    dataBase.getDataBase().then((name: UserData) => {
+      this.name = name.nome;
+    });
+  }
+  get nameFormat() {
+    const nome = this.name;
+    const primeiroCaracter = nome.slice(0, 1).toUpperCase();
+    const restCaracter = nome.slice(1, nome.length).toLowerCase();
+    const nameFormat = `${primeiroCaracter}${restCaracter}`;
+    return nameFormat;
+  }
+  mounted() {
+    this.getName();
+  }
 }
 </script>
 

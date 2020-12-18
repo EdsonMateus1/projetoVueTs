@@ -42,8 +42,6 @@ const routes: Array<RouteConfig> = [
   }
 ];
 
-
-
 const router = new VueRouter({
   mode: "history",
   base: process.env.BASE_URL,
@@ -52,12 +50,12 @@ const router = new VueRouter({
 
 //type guards global
 router.beforeEach((to, from, next) => {
-  const id = localStorage.getItem("toke-login") || null
-  if (!id && (to.name != "Login" && to.name != "Sign")) {
-    next({ name: "Login" })
+  const id = localStorage.getItem("toke-login") || null;
+  if (!id && to.name != "Login" && to.name != "Sign") {
+    next({ name: "Login" });
   } else {
-    next()
+    next();
   }
-})
+});
 
 export default router;
