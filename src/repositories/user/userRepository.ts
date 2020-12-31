@@ -4,6 +4,7 @@ import { firebaseApp } from "../../firebase/index";
 class UserRepository {
   private id = localStorage.getItem("toke-login");
   private ref = firebaseApp.database().ref(`user_id_${this.id}`);
+  private todos: Array<never> | Array<Todo> | undefined = [];
 
   async createUser(data: object) {
     try {
@@ -24,16 +25,18 @@ class UserRepository {
 
   createTodo(data: any) {
     const id = this.ref.push().key ?? "";
-    const todos = this.ref.child("todos").child(id); 
+    const todos = this.ref.child("todos").child(id);
     todos.set({ ...data, id });
   }
   async getTodos() {
     try {
-      const res = await this.ref.once("value");
-      const data = res.val().todos;
-      if (!data) return;
-      const todos: Array<Todo> = Object.keys(data).map((key) => data[key]);
-      return todos;
+      await this.ref.on("value", (res) => {
+        const data = res.val().todos;
+        if (!data) return;
+        const todos: Array<Todo> = Object.keys(data).map((key) => data[key]);
+        this.todos = todos;
+      });
+      return this.todos;
     } catch (error) {
       console.log("error class refDataBase get", error);
     }

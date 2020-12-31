@@ -21,8 +21,8 @@ export default class CreateTaks extends Vue {
     const todos = await this.userRepository.getTodos();
     this.todos = todos;
   }
-  async mounted() {
-    await this.getTodos();
+  mounted() {
+    this.getTodos();
   }
 }
 </script>
