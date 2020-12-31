@@ -1,7 +1,5 @@
 <template>
-  <v-container class="main">
-    
-  </v-container>
+  <v-container class="main"> </v-container>
 </template>
 
 <script lang="ts">
@@ -13,7 +11,7 @@ export default class CreateTaks extends Vue {
   private completed = false;
   private userRepository = new UserRepository();
 
-  get dateFormate() {
+  get dateCreation() {
     const day = new Date().getDate();
     const month = new Date().getMonth();
     const year = new Date().getFullYear();
@@ -34,9 +32,9 @@ export default class CreateTaks extends Vue {
       todos: {
         id: key,
         name: this.todoName,
-        dateCreation: this.dateFormate,
-        completed: this.completed,
-      },
+        dateCreation: this.dateCreation,
+        completed: this.completed
+      }
     };
     this.userRepository.setDataBase(data);
   }

@@ -27,7 +27,7 @@
 <script lang="ts">
 import { Component, Vue } from "vue-property-decorator";
 import myComponentes from "../../utils/myCompontesRoutes";
-import { UserData } from "@/types/userTypes";
+import { UserData } from "@/settings/types/userTypes";
 import UserRepository from "@/repositories/user/userRepository";
 
 @Component
@@ -37,8 +37,8 @@ export default class AppBar extends Vue {
 
   async getName() {
     const userRepository = new UserRepository();
-    userRepository.getDataBase().then((name: UserData) => {
-      this.name = name.firstName;
+    userRepository.getDataBase().then((user: UserData) => {
+      this.name = user.firstName;
     });
   }
   get nameFormat() {

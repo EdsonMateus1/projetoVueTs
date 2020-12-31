@@ -53,7 +53,7 @@ export default class Login extends Vue {
       const res = await this.$firebase
         .auth()
         .signInWithEmailAndPassword(this.email, this.password);
-      const id = res.user!.uid;
+      const id = res.user?.uid ?? "";
       localStorage.setItem("toke-login", id);
       this.$router.push({ name: "Home" });
     } catch (error) {
@@ -70,7 +70,6 @@ export default class Login extends Vue {
   }
   mounted() {
     this.redirectLoggedIn();
-    console.log(this.$firebase);
   }
 }
 </script>
