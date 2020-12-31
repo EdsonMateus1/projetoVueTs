@@ -7,7 +7,8 @@ import { Component, Vue } from "vue-property-decorator";
 import UserRepository from "@/repositories/user/userRepository";
 @Component
 export default class CreateTaks extends Vue {
-  private todoName = "comprar pao";
+  private title = "comprar pao";
+  private description = "amanha cedo";
   private completed = false;
   private userRepository = new UserRepository();
   get dateCreation() {
@@ -18,7 +19,8 @@ export default class CreateTaks extends Vue {
   }
   createTodo() {
     this.userRepository.createTodo({
-      name: this.todoName,
+      title: this.title,
+      description: this.description,
       completed: this.completed,
       dateCreation: this.dateCreation
     });
