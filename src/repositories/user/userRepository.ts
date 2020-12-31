@@ -12,7 +12,7 @@ class UserRepository {
       console.log("error class refDataBase set", error);
     }
   }
-  async getDataBase(): Promise<any> {
+  async getDataBase() {
     try {
       const res = await this.ref.once("value");
       const data: UserData = res.val();
@@ -21,7 +21,7 @@ class UserRepository {
       console.log("error class refDataBase get", error);
     }
   }
-  createTodo(data: Todo) {
+  createTodo(data: any) {
     const id = this.ref.push().key ?? "";
     const todos = this.ref.child("todos").child(id);
     todos.set({ ...data, id });
@@ -30,6 +30,7 @@ class UserRepository {
     try {
       const res = await this.ref.once("value");
       const data = res.val().todos;
+      if (!data) return;
       const todos: Array<Todo> = Object.keys(data).map((key) => data[key]);
       return todos;
     } catch (error) {

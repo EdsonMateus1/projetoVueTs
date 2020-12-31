@@ -37,8 +37,8 @@ export default class AppBar extends Vue {
 
   async getName() {
     const userRepository = new UserRepository();
-    userRepository.getDataBase().then((user: UserData) => {
-      this.name = user.firstName;
+    userRepository.getDataBase().then(user => {
+      this.name = user?.firstName ?? "";
     });
   }
   get nameFormat() {

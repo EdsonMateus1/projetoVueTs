@@ -51,6 +51,14 @@ export default class CreateTaks extends Vue {
   private checkbox = false;
   private completed = false;
   private userRepository = new UserRepository();
+
+  async getTodos() {
+    return await this.userRepository.getTodos();
+  }
+  async mounted() {
+    const res = await this.getTodos();
+    console.log(res);
+  }
 }
 </script>
 
