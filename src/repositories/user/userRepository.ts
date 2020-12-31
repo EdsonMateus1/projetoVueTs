@@ -3,10 +3,11 @@ import { firebaseApp } from "../../firebase/index";
 class UserRepository {
     private id = localStorage.getItem("toke-login");
     private ref = firebaseApp.database().ref(`user_id_${this.id}`);
-    constructor(private data?: object) { }
-    async setDataBase() {
+
+   // constructor() { }
+    async setDataBase(data: object) {
         try {
-            await this.ref.set(this.data)
+            await this.ref.set(data)
         } catch (error) {
             console.log("error class refDataBase set", error);
         }
@@ -19,6 +20,9 @@ class UserRepository {
         } catch (error) {
             console.log("error class refDataBase get", error);
         }
+    }
+    createKey (){
+      return this.ref.push().key;
     }
 };
 

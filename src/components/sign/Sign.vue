@@ -87,11 +87,13 @@ export default class Sign extends Vue {
     return confirmePasswordRules;
   }
   saveName() {
-    const ref = new UserRepository({
+    const id = localStorage.getItem("toke-login");
+    if (!id) return;
+    const userRepository = new UserRepository();
+    userRepository.setDataBase({
       firstName: this.firstName,
       lastName: this.lastName
     });
-    ref.setDataBase();
   }
   // Declared metodos
   async createUser() {
@@ -99,7 +101,7 @@ export default class Sign extends Vue {
       const res = await this.$firebase
         .auth()
         .createUserWithEmailAndPassword(this.email, this.password);
-      const id = res.user!.uid;
+      const id = res.user?.uid ?? "";
       localStorage.setItem("toke-login", id);
       this.saveName();
       this.$router.push({ name: "Home" });

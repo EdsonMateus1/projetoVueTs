@@ -1,7 +1,10 @@
 export type UserData = {
-    nome: string;
-    sobrenome: string;
-}
-
-
-
+  firstName: string;
+  lastName: string;
+  todos: {
+    id: string;
+    name: string;
+    dateCreation: string;
+    completed: boolean;
+  };
+};
