@@ -1,8 +1,8 @@
 <template>
-  <v-card class="ma-8" min-width="350" max-height="150" color="#385F73" dark>
-    <v-card-title class="headline"> ir na academia </v-card-title>
+  <v-card class="ma-8" min-width="350" max-height="170" color="#385F73" dark>
+    <v-card-title class="headline mb-3"> {{ title }}</v-card-title>
 
-    <v-card-subtitle>tenho que ir malhar o bumbu</v-card-subtitle>
+    <v-card-subtitle>{{ description }}</v-card-subtitle>
 
     <v-card-actions>
       <v-checkbox v-model="checkbox" label="Marca como completa"></v-checkbox>
@@ -11,10 +11,14 @@
 </template>
 
 <script lang="ts">
-import { Component, Vue } from "vue-property-decorator";
+import { Component, Vue, Prop } from "vue-property-decorator";
 
 @Component
 export default class TodosCard extends Vue {
+  @Prop({ required: true })
+  title!: string;
+  @Prop({ required: true })
+  description!: string;
   private checkbox = false;
 }
 </script>

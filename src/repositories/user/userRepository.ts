@@ -24,7 +24,7 @@ class UserRepository {
 
   createTodo(data: any) {
     const id = this.ref.push().key ?? "";
-    const todos = this.ref.child("todos").child(id);
+    const todos = this.ref.child("todos").child(id); 
     todos.set({ ...data, id });
   }
   async getTodos() {

@@ -1,9 +1,7 @@
 <template>
-  <v-container class="main">
-    <v-row>
-      <todo-card v-for="todo in todos" :key="todo.id"></todo-card>
-    </v-row>
-  </v-container>
+  <v-row>
+    <todo-card v-for="todo in todos" :key="todo.id" v-bind="todo"></todo-card>
+  </v-row>
 </template>
 
 <script lang="ts">
@@ -16,8 +14,6 @@ import { Todo } from "@/settings/types/userTypes";
   components: { TodoCard },
 })
 export default class CreateTaks extends Vue {
-  private todoName = "comprar pao";
-  private completed = false;
   private todos: Array<never> | Array<Todo> | undefined = [];
   private userRepository = new UserRepository();
 
