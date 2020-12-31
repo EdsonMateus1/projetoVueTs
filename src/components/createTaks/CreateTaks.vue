@@ -1,8 +1,6 @@
 <template>
-  <v-container class="main"> 
-      <v-card>
-          
-      </v-card>
+  <v-container class="main">
+    
   </v-container>
 </template>
 
@@ -37,8 +35,8 @@ export default class CreateTaks extends Vue {
         id: key,
         name: this.todoName,
         dateCreation: this.dateFormate,
-        completed: this.completed
-      }
+        completed: this.completed,
+      },
     };
     this.userRepository.setDataBase(data);
   }

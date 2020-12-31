@@ -1,5 +1,5 @@
 <template>
-  <v-app-bar color="deep-purple accent-4" dark>
+  <v-app-bar color="#385F73 accent-4 hidden-sm-and-down" dark>
     <v-toolbar-title>Bem-vindo {{ nameFormat }} </v-toolbar-title>
     <v-spacer></v-spacer>
     <v-menu>

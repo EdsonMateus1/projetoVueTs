@@ -1,6 +1,6 @@
 <template>
   <v-navigation-drawer
-    class="deep-purple accent-4 hidden-sm-and-down"
+    class="#385F73 accent-4 hidden-sm-and-down"
     dark
     permanent
     width="225px"

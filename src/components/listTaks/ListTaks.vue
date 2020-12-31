@@ -1,12 +1,88 @@
 <template>
-  <v-container><h1>List</h1></v-container>
+  <v-container class="main">
+    <v-row>
+      <v-card
+        class="ma-8"
+        min-width="350"
+        max-height="150"
+        color="#385F73"
+        dark
+      >
+        <v-card-title class="headline"> ir na academia </v-card-title>
+
+        <v-card-subtitle>tenho que ir malhar o bumbu</v-card-subtitle>
+
+        <v-card-actions>
+          <v-checkbox
+            v-model="checkbox"
+            label="Marca como completa"
+          ></v-checkbox>
+        </v-card-actions>
+      </v-card>
+
+      <v-card
+        class="ma-8"
+        min-width="350"
+        max-height="150"
+        color="#385F73"
+        dark
+      >
+        <v-card-title class="headline"> ir na academia </v-card-title>
+
+        <v-card-subtitle>tenho que ir malhar o bumbu</v-card-subtitle>
+
+        <v-card-actions>
+          <v-checkbox
+            v-model="checkbox"
+            label="Marca como completa"
+          ></v-checkbox>
+        </v-card-actions>
+      </v-card>
+    </v-row>
+  </v-container>
 </template>
 
 <script lang="ts">
 import { Component, Vue } from "vue-property-decorator";
-
+import UserRepository from "@/repositories/user/userRepository";
 @Component
-export default class ListTaks extends Vue {}
+export default class CreateTaks extends Vue {
+  private todoName = "comprar pao";
+  private checkbox = false;
+  private completed = false;
+  private userRepository = new UserRepository();
+
+  get dateFormate() {
+    const day = new Date().getDate();
+    const month = new Date().getMonth();
+    const year = new Date().getFullYear();
+    return `${day}/${month + 1}/${year}`;
+  }
+
+  async getUser() {
+    const user = await this.userRepository.getDataBase();
+    return user;
+  }
+
+  async saveTodo() {
+    const user = await this.getUser();
+    const key = this.userRepository.createKey();
+    console.log(user);
+    const data = {
+      ...user,
+      todos: {
+        id: key,
+        name: this.todoName,
+        dateCreation: this.dateFormate,
+        completed: this.completed,
+      },
+    };
+    this.userRepository.setDataBase(data);
+  }
+  mounted() {
+    this.saveTodo();
+  }
+}
 </script>
 
 <style scoped></style>
