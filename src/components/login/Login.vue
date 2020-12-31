@@ -33,7 +33,7 @@
 <script lang="ts">
 import { Component, Vue } from "vue-property-decorator";
 import Button from "@/components/shared/button/Button.vue";
-import VueRouter, { Route } from "vue-router";
+
 @Component({
   components: { Button }
 })
@@ -42,10 +42,10 @@ export default class Login extends Vue {
   private email = "";
   private password = "";
   private progress = false;
-  private passwordRules = [(v: any) => !!v || "password is required"];
+  private passwordRules = [(v: string) => !!v || "password is required"];
   private emailRules = [
-    (v: any) => !!v || "E-mail is required",
-    (v: any) => /.+@.+/.test(v) || "E-mail must be valid"
+    (v: string) => !!v || "E-mail is required",
+    (v: string) => /.+@.+/.test(v) || "E-mail must be valid"
   ];
   async doLogin() {
     try {
@@ -70,6 +70,7 @@ export default class Login extends Vue {
   }
   mounted() {
     this.redirectLoggedIn();
+    console.log(this.$firebase);
   }
 }
 </script>

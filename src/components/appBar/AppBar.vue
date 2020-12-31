@@ -27,7 +27,8 @@
 <script lang="ts">
 import { Component, Vue } from "vue-property-decorator";
 import myComponentes from "../../utils/myCompontesRoutes";
-import { ToManageDataBase, UserData } from "@/firebase/ToManageDataBase";
+import { UserData } from "@/types/userTypes";
+import UserRepository from "@/repositories/user/userRepository";
 
 @Component
 export default class AppBar extends Vue {
@@ -35,7 +36,7 @@ export default class AppBar extends Vue {
   private name = "";
 
   async getName() {
-    const dataBase = new ToManageDataBase();
+    const dataBase = new UserRepository();
     dataBase.getDataBase().then((name: UserData) => {
       this.name = name.nome;
     });
