@@ -45,19 +45,21 @@
 <script lang="ts">
 import { Component, Vue } from "vue-property-decorator";
 import UserRepository from "@/repositories/user/userRepository";
+import { Todo } from "@/settings/types/userTypes";
 @Component
 export default class CreateTaks extends Vue {
   private todoName = "comprar pao";
   private checkbox = false;
   private completed = false;
+  private todos: Array<Todo> | undefined;
   private userRepository = new UserRepository();
 
   async getTodos() {
-    return await this.userRepository.getTodos();
+    const todos = await this.userRepository.getTodos();
+    this.todos = todos;
   }
-  async mounted() {
-    const res = await this.getTodos();
-    console.log(res);
+  mounted() {
+    console.log(this.todos);
   }
 }
 </script>

@@ -10,7 +10,7 @@ export default class CreateTaks extends Vue {
   private todoName = "comprar pao";
   private completed = false;
   private userRepository = new UserRepository();
-  get dateFormate() {
+  get dateCreation() {
     const day = new Date().getDate();
     const month = new Date().getMonth();
     const year = new Date().getFullYear();
@@ -20,11 +20,8 @@ export default class CreateTaks extends Vue {
     this.userRepository.createTodo({
       name: this.todoName,
       completed: this.completed,
-      dateCreation: this.dateFormate,
+      dateCreation: this.dateCreation
     });
-  }
-  mounted() {
-    this.createTodo();
   }
 }
 </script>

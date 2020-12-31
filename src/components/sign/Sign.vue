@@ -53,7 +53,7 @@ import Button from "@/components/shared/button/Button.vue";
 import UserRepository from "@/repositories/user/userRepository";
 
 @Component({
-  components: { Button }
+  components: { Button },
 })
 export default class Sign extends Vue {
   private valid = false;
@@ -78,7 +78,6 @@ export default class Sign extends Vue {
     (v: string) => /.+@.+/.test(v) || "E-mail must be valid",
   ];
 
-  // Declared as computed property getter
   get confirmePasswordRules() {
     const confirmePasswordRules = [
       (v: string) => !!v || "password comfirme is required",
@@ -90,12 +89,12 @@ export default class Sign extends Vue {
     const id = localStorage.getItem("toke-login");
     if (!id) return;
     const userRepository = new UserRepository();
-    userRepository.setDataBase({
+    userRepository.createUser({
       firstName: this.firstName,
       lastName: this.lastName
     });
   }
-  // Declared metodos
+
   async createUser() {
     try {
       const res = await this.$firebase

@@ -5,7 +5,7 @@ class UserRepository {
   private id = localStorage.getItem("toke-login");
   private ref = firebaseApp.database().ref(`user_id_${this.id}`);
 
-  async setDataBase(data: object) {
+  async createUser(data: object) {
     try {
       await this.ref.set(data);
     } catch (error) {
@@ -21,6 +21,7 @@ class UserRepository {
       console.log("error class refDataBase get", error);
     }
   }
+
   createTodo(data: any) {
     const id = this.ref.push().key ?? "";
     const todos = this.ref.child("todos").child(id);
