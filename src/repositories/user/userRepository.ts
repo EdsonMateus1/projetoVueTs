@@ -30,21 +30,20 @@ class UserRepository {
   }
   async getTodos() {
     try {
-      await this.ref.on("value", (res) => {
-        const data = res.val().todos;
-        if (!data) return;
-        const todos: Array<Todo> = Object.keys(data).map((key) => data[key]);
-        this.todos = todos;
-      });
+      const res = await this.ref.once("value");
+      const data = res.val().todos;
+      if (!data) return;
+      const todos: Array<Todo> = Object.keys(data).map((key) => data[key]);
+      this.todos = todos;
       return this.todos;
     } catch (error) {
       console.log("error class refDataBase get", error);
     }
   }
-  async removeTodo(id: string) {
-    await firebaseApp
+  removeTodo() {
+    firebaseApp
       .database()
-      .ref(id)
+      .ref("")
       .remove();
   }
 }

@@ -21,8 +21,8 @@ export default class CreateTaks extends Vue {
     const todos = await this.userRepository.getTodos();
     this.todos = todos;
   }
-  async removeTodo(id: string) {
-    await this.userRepository.removeTodo(id);
+  removeTodo() {
+    this.userRepository.removeTodo();
   }
   mounted() {
     this.getTodos();
