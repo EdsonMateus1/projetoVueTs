@@ -11,7 +11,7 @@ import TodoCard from "./components/TodosCard.vue";
 import { Todo } from "@/settings/types/userTypes";
 
 @Component({
-  components: { TodoCard },
+  components: { TodoCard }
 })
 export default class CreateTaks extends Vue {
   private todos: Array<never> | Array<Todo> | undefined = [];
@@ -20,6 +20,9 @@ export default class CreateTaks extends Vue {
   async getTodos() {
     const todos = await this.userRepository.getTodos();
     this.todos = todos;
+  }
+  async removeTodo(id: string) {
+    await this.userRepository.removeTodo(id);
   }
   mounted() {
     this.getTodos();

@@ -41,6 +41,12 @@ class UserRepository {
       console.log("error class refDataBase get", error);
     }
   }
+  async removeTodo(id: string) {
+    await firebaseApp
+      .database()
+      .ref(id)
+      .remove();
+  }
 }
 
 export default UserRepository;
