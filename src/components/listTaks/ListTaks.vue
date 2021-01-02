@@ -1,6 +1,11 @@
 <template>
   <v-row>
-    <todo-card v-for="todo in todos" :key="todo.id" v-bind="todo"></todo-card>
+    <todo-card
+      v-for="todo in todosComputed"
+      :onDelete="() => removeTodo(todo.id)"
+      :key="todo.id"
+      v-bind="todo"
+    ></todo-card>
   </v-row>
 </template>
 
@@ -11,7 +16,7 @@ import TodoCard from "./components/TodosCard.vue";
 import { Todo } from "@/settings/types/userTypes";
 
 @Component({
-  components: { TodoCard }
+  components: { TodoCard },
 })
 export default class CreateTaks extends Vue {
   private todos: Array<never> | Array<Todo> | undefined = [];
@@ -21,9 +26,16 @@ export default class CreateTaks extends Vue {
     const todos = await this.userRepository.getTodos();
     this.todos = todos;
   }
-  removeTodo() {
-    this.userRepository.removeTodo();
+  get todosComputed() {
+    return this.todos;
   }
+  removeTodo(id: string) {
+    this.userRepository.removeTodo(id);
+  }
+  updated() {
+    this.getTodos();
+  }
+
   mounted() {
     this.getTodos();
   }

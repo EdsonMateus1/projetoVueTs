@@ -1,13 +1,22 @@
 <template>
-  <v-card class="ma-8" max-width="450"  color="#385F73" dark>
-    <v-card-title class="headline mb-3"> {{ title }}</v-card-title>
+  <v-card class="ma-8" max-width="450" color="#385F73" dark>
+    <v-card-title class="headline mb-3">{{ title }}</v-card-title>
 
     <v-card-subtitle>{{ description }}</v-card-subtitle>
 
     <v-card-actions>
       <v-checkbox v-model="checkbox" label="Marca como completa"></v-checkbox>
       <v-spacer></v-spacer>
-      <v-btn width="30" height="30" class="mx-0" fab dark small color="#385F73">
+      <v-btn
+        @click="onDelete"
+        width="30"
+        height="30"
+        class="mx-0"
+        fab
+        dark
+        small
+        color="#385F73"
+      >
         <v-icon dark>mdi-delete </v-icon>
       </v-btn>
     </v-card-actions>

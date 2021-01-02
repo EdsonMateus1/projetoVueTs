@@ -4,7 +4,7 @@ import { firebaseApp } from "../../firebase/index";
 class UserRepository {
   private id = localStorage.getItem("toke-login");
   private ref = firebaseApp.database().ref(`user_id_${this.id}`);
-  private todos: Array<never> | Array<Todo> | undefined = [];
+  //private todos: Array<never> | Array<Todo> | undefined = [];
 
   async createUser(data: object) {
     try {
@@ -17,8 +17,6 @@ class UserRepository {
     try {
       const res = await this.ref.once("value");
       const data: UserData = res.val();
-      console.log(data);
-      
       return data;
     } catch (error) {
       console.log("error class refDataBase get", error);
@@ -36,16 +34,15 @@ class UserRepository {
       const data = res.val().todos;
       if (!data) return;
       const todos: Array<Todo> = Object.keys(data).map((key) => data[key]);
-      this.todos = todos;
-      return this.todos;
+      return todos;
     } catch (error) {
       console.log("error class refDataBase get", error);
     }
   }
-  removeTodo() {
-    firebaseApp
-      .database()
-      .ref("")
+  async removeTodo(id: string) {
+    await this.ref
+      .child("todos")
+      .child(id)
       .remove();
   }
 }
