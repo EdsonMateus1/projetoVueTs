@@ -45,6 +45,16 @@ class UserRepository {
       .child(id)
       .remove();
   }
+  async updatedCheckTodo(value: boolean, id: string) {
+    console.log("updade");
+
+    await this.ref
+      .child("todos")
+      .child(id)
+      .update({
+        completed: value,
+      });
+  }
 }
 
 export default UserRepository;

@@ -10,19 +10,19 @@ const routes: Array<RouteConfig> = [
       {
         path: "",
         name: "Home",
-        component: () => import("@/components/listTaks/ListTaks.vue")
+        component: () => import("@/components/listTaks/ListTaks.vue"),
       },
       {
         path: "/home/createTaks",
         name: "Create Taks",
-        component: () => import("@/components/createTaks/CreateTaks.vue")
+        component: () => import("@/components/createTaks/CreateTaks.vue"),
       },
       {
         path: "/home/editTaks",
         name: "Edit Taks",
-        component: () => import("@/components/editTaks/EditTaks.vue")
-      }
-    ]
+        component: () => import("@/components/editTaks/EditTaks.vue"),
+      },
+    ],
   },
   {
     path: "/",
@@ -31,21 +31,21 @@ const routes: Array<RouteConfig> = [
       {
         path: "",
         name: "Login",
-        component: () => import("@/components/login/Login.vue")
+        component: () => import("@/components/login/Login.vue"),
       },
       {
         path: "/sign",
         name: "Sign",
-        component: () => import("@/components/sign/Sign.vue")
-      }
-    ]
-  }
+        component: () => import("@/components/sign/Sign.vue"),
+      },
+    ],
+  },
 ];
 
 const router = new VueRouter({
   mode: "history",
   base: process.env.BASE_URL,
-  routes
+  routes,
 });
 
 //type guards global
