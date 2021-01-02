@@ -10,7 +10,7 @@ class UserRepository {
     try {
       await this.ref.set(data);
     } catch (error) {
-      console.log("error class refDataBase set", error);
+      console.log("createUser", error);
     }
   }
   async getDataBase() {
@@ -23,10 +23,14 @@ class UserRepository {
     }
   }
 
-  createTodo(data: any) {
-    const id = this.ref.push().key ?? "";
-    const todos = this.ref.child("todos").child(id);
-    todos.set({ ...data, id });
+  async createTodo(data: any) {
+    try {
+      const id = this.ref.push().key ?? "";
+      const todos = this.ref.child("todos").child(id);
+      await todos.set({ ...data, id });
+    } catch (error) {
+      console.log("createTodo", error);
+    }
   }
   async getTodos() {
     try {
@@ -40,20 +44,26 @@ class UserRepository {
     }
   }
   async removeTodo(id: string) {
-    await this.ref
-      .child("todos")
-      .child(id)
-      .remove();
+    try {
+      await this.ref
+        .child("todos")
+        .child(id)
+        .remove();
+    } catch (error) {
+      console.log("removeTodo", error);
+    }
   }
   async updatedCheckTodo(value: boolean, id: string) {
-    console.log("updade");
-
-    await this.ref
-      .child("todos")
-      .child(id)
-      .update({
-        completed: value,
-      });
+    try {
+      await this.ref
+        .child("todos")
+        .child(id)
+        .update({
+          completed: value,
+        });
+    } catch (error) {
+      console.log("updade", error);
+    }
   }
 }
 

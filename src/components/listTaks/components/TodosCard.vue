@@ -47,8 +47,6 @@ export default class TodosCard extends Vue {
   completed!: boolean;
   @Prop({ required: false })
   onDelete!: Function;
-  @Prop({ required: false })
-  onCheck!: Function;
   private checkbox = this.completed;
   emitCheckbox() {
     this.$emit("emitCheckbox", this.checkbox);

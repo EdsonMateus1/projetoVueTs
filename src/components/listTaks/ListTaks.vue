@@ -17,7 +17,7 @@ import TodoCard from "./components/TodosCard.vue";
 import { Todo } from "@/settings/types/userTypes";
 
 @Component({
-  components: { TodoCard },
+  components: { TodoCard }
 })
 export default class CreateTaks extends Vue {
   private todos: Array<never> | Array<Todo> | undefined = [];
