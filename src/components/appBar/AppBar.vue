@@ -27,7 +27,6 @@
 <script lang="ts">
 import { Component, Vue } from "vue-property-decorator";
 import myComponentes from "../../utils/myCompontesRoutes";
-import { UserData } from "@/settings/types/userTypes";
 import UserRepository from "@/repositories/user/userRepository";
 
 @Component

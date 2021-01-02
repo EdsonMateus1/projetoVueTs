@@ -1,5 +1,5 @@
 <template>
-  <v-card class="ma-8" min-width="350" max-height="170" color="#385F73" dark>
+  <v-card class="ma-8" max-width="450"  color="#385F73" dark>
     <v-card-title class="headline mb-3"> {{ title }}</v-card-title>
 
     <v-card-subtitle>{{ description }}</v-card-subtitle>

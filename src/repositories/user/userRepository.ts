@@ -17,6 +17,8 @@ class UserRepository {
     try {
       const res = await this.ref.once("value");
       const data: UserData = res.val();
+      console.log(data);
+      
       return data;
     } catch (error) {
       console.log("error class refDataBase get", error);
