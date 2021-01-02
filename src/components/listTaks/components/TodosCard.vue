@@ -53,5 +53,4 @@ export default class TodosCard extends Vue {
   }
 }
 </script>
-
 <style scoped></style>
