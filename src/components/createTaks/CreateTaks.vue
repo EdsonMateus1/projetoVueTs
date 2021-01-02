@@ -1,6 +1,6 @@
 <template>
   <v-container class="flex">
-    <v-card elevation="10" class="pa-10" color="" width="600">
+    <v-card elevation="10" class="pa-10" color="" width="700">
       <v-form @submit.prevent="createTodo" v-model="valid">
         <v-text-field
           color="#385F73"
@@ -43,8 +43,10 @@ export default class CreateTaks extends Vue {
   private description = "";
   private completed = false;
   private valid = false;
+  private closeModal = false;
   private userRepository = new UserRepository();
   private inputRules = [(v: string) => !!v || "Required field"];
+
   get dateCreation() {
     const day = new Date().getDate();
     const month = new Date().getMonth();
@@ -56,9 +58,12 @@ export default class CreateTaks extends Vue {
       title: this.title,
       description: this.description,
       completed: this.completed,
-      dateCreation: this.dateCreation,
+      dateCreation: this.dateCreation
     });
-    this.$router.push({ name: "Home" });
+    this.title = "";
+    this.description = "";
+    this.$emit("closeModal", this.closeModal);
+    //this.$router.push({ name: "Home" });
   }
 }
 </script>

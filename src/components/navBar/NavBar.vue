@@ -5,23 +5,24 @@
     permanent
     width="225px"
   >
-    <v-list>
-      <router-link
-        class="v-list-item v-list-item--link theme--dark"
-        v-for="myComponente in myComponentes"
-        :to="myComponente.to"
-        :key="myComponente.title"
-        link
-      >
-        <v-list-item-icon>
-          <v-icon>{{ myComponente.icon }}</v-icon>
-        </v-list-item-icon>
-
-        <v-list-item-content>
-          <v-list-item-title> {{ myComponente.title }}</v-list-item-title>
-        </v-list-item-content>
-      </router-link>
+    <v-list class="px-3 py-0">
+      <v-list-item-content>
+        <v-dialog v-model="closeModal" width="700">
+          <template v-slot:activator="{ on, attrs }">
+            <v-btn v-bind="attrs" v-on="on">
+              <v-list-item-icon>
+                <div>
+                  <v-icon> {{ "mdi-plus" }} </v-icon>
+                  Create Taks
+                </div>
+              </v-list-item-icon>
+            </v-btn>
+          </template>
+          <create-taks @closeModal="closeModal = $event"></create-taks>
+        </v-dialog>
+      </v-list-item-content>
     </v-list>
+
     <v-divider></v-divider>
 
     <template v-slot:append>
@@ -43,11 +44,14 @@
 <script lang="ts">
 import { Component, Vue } from "vue-property-decorator";
 import myComponentes from "../../utils/myCompontesRoutes";
+import CreateTaks from "@/components/createTaks/CreateTaks.vue";
 // O decorador @Component indica que a classe é um componente Vue
-@Component({})
+@Component({ components: { CreateTaks } })
 export default class NavBar extends Vue {
   private readonly myComponentes = myComponentes;
   private progress = false;
+  private closeModal = false;
+
   async logout() {
     try {
       this.progress = true;
