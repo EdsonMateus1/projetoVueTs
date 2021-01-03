@@ -1,29 +1,32 @@
-import { Todo, UserData } from "@/settings/types/userTypes";
+import {
+  Todo,
+  UserData,
+  InterfaceUserRepository,
+} from "@/settings/types/userTypes";
 import { firebaseApp } from "../../firebase/index";
 
-class UserRepository {
+class UserRepository implements InterfaceUserRepository {
   private id = localStorage.getItem("toke-login");
   private ref = firebaseApp.database().ref(`user_id_${this.id}`);
-  //private todos: Array<never> | Array<Todo> | undefined = [];
 
-  async createUser(data: object) {
+  async createUser(data: object): Promise<void> {
     try {
       await this.ref.set(data);
     } catch (error) {
       console.log("createUser", error);
     }
   }
-  async getDataBase() {
+  async getDataBase(): Promise<UserData | undefined> {
     try {
       const res = await this.ref.once("value");
-      const data: UserData = res.val();
+      const data = res.val();
       return data;
     } catch (error) {
       console.log("error class refDataBase get", error);
     }
   }
 
-  async createTodo(data: any) {
+  async createTodo(data: object): Promise<void> {
     try {
       const id = this.ref.push().key ?? "";
       const todos = this.ref.child("todos").child(id);
@@ -32,7 +35,7 @@ class UserRepository {
       console.log("createTodo", error);
     }
   }
-  async getTodos() {
+  async getTodos(): Promise<Array<Todo> | undefined> {
     try {
       const res = await this.ref.once("value");
       const data = res.val().todos;
@@ -43,7 +46,7 @@ class UserRepository {
       console.log("error class refDataBase get", error);
     }
   }
-  async removeTodo(id: string) {
+  async removeTodo(id: string): Promise<void> {
     try {
       await this.ref
         .child("todos")
@@ -53,7 +56,7 @@ class UserRepository {
       console.log("removeTodo", error);
     }
   }
-  async updatedCheckTodo(value: boolean, id: string) {
+  async updatedCheckTodo(value: boolean, id: string): Promise<void> {
     try {
       await this.ref
         .child("todos")
