@@ -31,7 +31,7 @@ export default class LoginPage extends Vue {
 
 <style lang="scss" scoped>
 .main {
-  background-color: #385f73;
+  background-color: #006064;
   padding: 0 20px !important;
 }
 .width-resposive {

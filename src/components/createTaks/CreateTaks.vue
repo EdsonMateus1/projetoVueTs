@@ -3,7 +3,7 @@
     <v-card elevation="10" class="pa-10" color="" width="700">
       <v-form @submit.prevent="createTodo" v-model="valid">
         <v-text-field
-          color="#385F73"
+          color="cyan darken-4"
           label="Title"
           hint=""
           persistent-hint
@@ -13,7 +13,7 @@
           v-model="title"
         ></v-text-field>
         <v-textarea
-          color="#385F73"
+          color="cyan darken-4"
           outlined
           name="input-7-4"
           label="Description"
@@ -24,7 +24,7 @@
         <v-btn
           :disabled="!valid"
           class="white--text"
-          color="#385F73"
+          color="cyan darken-4"
           type="submit"
         >
           Register

@@ -1,15 +1,10 @@
 <template>
-  <v-navigation-drawer
-    class="#385F73 accent-4 hidden-sm-and-down"
-    dark
-    permanent
-    width="225px"
-  >
+  <v-navigation-drawer class="cyan darken-3" dark permanent width="225px">
     <v-list class="px-3 py-0">
       <v-list-item-content>
         <v-dialog v-model="closeModal" width="700">
           <template v-slot:activator="{ on, attrs }">
-            <v-btn v-bind="attrs" v-on="on">
+            <v-btn color="cyan darken-4" v-bind="attrs" v-on="on">
               <v-list-item-icon>
                 <div>
                   <v-icon> {{ "mdi-plus" }} </v-icon>
@@ -35,7 +30,9 @@
           rounded
           height="36"
         ></v-progress-linear>
-        <v-btn v-else @click="logout" block> Logout </v-btn>
+        <v-btn color="cyan darken-4" v-else @click="logout" block>
+          Logout
+        </v-btn>
       </div>
     </template>
   </v-navigation-drawer>

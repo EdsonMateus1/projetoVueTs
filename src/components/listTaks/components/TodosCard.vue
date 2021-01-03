@@ -4,7 +4,7 @@
     class="ma-8"
     max-width="300"
     min-width="300"
-    color="#385F73"
+    color="cyan darken-4"
     dark
   >
     <v-card-title class="headline mb-3">{{ title }}</v-card-title>

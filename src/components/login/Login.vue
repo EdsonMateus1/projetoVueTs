@@ -20,7 +20,7 @@
       ></v-text-field>
       <v-progress-linear
         v-if="progress"
-        color="deep-purple accent-4"
+        color="#006064"
         indeterminate
         rounded
         height="6"

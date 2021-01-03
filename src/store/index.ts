@@ -5,8 +5,12 @@ import { UserData } from "@/settings/types/userTypes";
 Vue.use(Vuex);
 
 export default new Vuex.Store({
-  state: {},
-  mutations: {},
+  state: {
+    todos: [],
+  },
+  mutations: {
+    
+  },
   actions: {},
   modules: {},
 });

@@ -2,7 +2,7 @@
   <v-btn
     :disabled="!validProps"
     type="submit"
-    color="deep-purple"
+    color="#006064"
     class="mr-4 white--text"
   >
     {{ title }}
