@@ -1,10 +1,10 @@
 <template>
-  <v-app-bar color="cyan darken-3 hidden-sm-and-down" dark>
+  <v-app-bar color="cyan darken-3 " dark>
     <v-toolbar-title>Bem-vindo {{ nameFormat }} </v-toolbar-title>
     <v-spacer></v-spacer>
     <v-menu>
       <template v-slot:activator="{ on, attrs }">
-        <v-app-bar-nav-icon class="hidden-md-and-up" v-bind="attrs" v-on="on">
+        <v-app-bar-nav-icon class=" hidden-md-and-up" v-bind="attrs" v-on="on">
         </v-app-bar-nav-icon>
       </template>
       <v-list>

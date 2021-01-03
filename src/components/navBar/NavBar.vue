@@ -1,5 +1,10 @@
 <template>
-  <v-navigation-drawer class="cyan darken-3" dark permanent width="225px">
+  <v-navigation-drawer
+    class="cyan darken-3 hidden-sm-and-down"
+    dark
+    permanent
+    width="225px"
+  >
     <v-list class="px-3 py-0">
       <v-list-item-content>
         <v-dialog v-model="closeModal" width="700">
