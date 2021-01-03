@@ -62,6 +62,7 @@ export default class CreateTaks extends Vue {
     });
     this.title = "";
     this.description = "";
+    this.$store.dispatch("getTodo");
     this.$emit("closeModal", this.closeModal);
     //this.$router.push({ name: "Home" });
   }

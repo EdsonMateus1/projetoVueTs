@@ -10,3 +10,7 @@ export type UserData = {
   lastName: string;
   todos: Array<Todo>;
 };
+
+export type TodoState = {
+  todos: Array<Todo>;
+};

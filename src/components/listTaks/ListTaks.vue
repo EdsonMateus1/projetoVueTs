@@ -1,7 +1,7 @@
 <template>
   <v-row>
     <todo-card
-      v-for="todo in todos"
+      v-for="todo in todosState"
       :onDelete="() => removeTodo(todo.id)"
       @emitCheckbox="updatedCheckTodo($event, todo.id)"
       :key="todo.id"
@@ -17,26 +17,25 @@ import TodoCard from "./components/TodosCard.vue";
 import { Todo } from "@/settings/types/userTypes";
 
 @Component({
-  components: { TodoCard }
+  components: { TodoCard },
 })
 export default class CreateTaks extends Vue {
   private todos: Array<never> | Array<Todo> | undefined = [];
   private userRepository = new UserRepository();
-  async getTodos() {
-    const todos = await this.userRepository.getTodos();
-    this.todos = todos;
-  }
+  
   removeTodo(id: string) {
     this.userRepository.removeTodo(id);
-    this.getTodos();
+    this.$store.dispatch("getTodo");
   }
   updatedCheckTodo(event: boolean, id: string) {
     this.userRepository.updatedCheckTodo(event, id);
-    this.getTodos();
+    this.$store.dispatch("getTodo");
   }
-
+  get todosState() {
+    return this.$store.state.todos;
+  }
   mounted() {
-    this.getTodos();
+    this.$store.dispatch("getTodo");
   }
 }
 </script>
