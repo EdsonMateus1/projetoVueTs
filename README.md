@@ -1,4 +1,4 @@
-# todo vue
+# Todo vue
 
 ## Project setup
 ```
@@ -31,10 +31,22 @@ npm run lint
 
 See [Configuration Reference](https://cli.vuejs.org/config/).
 
+
+
+### Features
+
+- [x] Cadastro de usuário
+- [x] Cadastro de tarefas
+- [x] Login autenticado
+- [x] Listagem de tarefas
+- [x] Excluir tarefas
+- [x] Atualizar tarefas
+
+
 ### video
-```
-https://user-images.githubusercontent.com/57047448/103488693-a83ba080-4ded-11eb-8b1c-149fd6fc65cc.mp4
-```
+
+>https://user-images.githubusercontent.com/57047448/103488693-a83ba080-4ded-11eb-8b1c-149fd6fc65cc.mp4
+
 
 ![2021 01 03-17 39](https://user-images.githubusercontent.com/57047448/103488726-04062980-4dee-11eb-8fdd-4c3d463929c6.png)
 
